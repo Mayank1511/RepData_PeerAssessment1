@@ -8,10 +8,27 @@ output:
 
 ## Loading and preprocessing the data
 
+```{r load }
 
+## Reading the file
+
+zipF<- "activity.zip"
+outDir<-"unzipfolder"
+unzip(zipF,exdir=outDir)
+activity <- read.csv(file = 'unzipfolder/activity.csv')
+head(activity)
+
+```
 
 ## What is mean total number of steps taken per day?
 
+```{r mean}
+
+## Calculating the total number of steps taken per day
+
+sumstep <- aggregate(x = activity, FUN = sum, by = list(date), na.rm=TRUE)
+
+```
 
 
 ## What is the average daily activity pattern?
